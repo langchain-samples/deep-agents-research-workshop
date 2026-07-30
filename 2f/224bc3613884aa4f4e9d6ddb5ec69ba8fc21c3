@@ -1,0 +1,66 @@
+modules/03_langsmith.ipynb
+  s_65c915cba5e485::t_17a65ed9091b9d 460,464-466,468-469,479-480,483-489,542-543,576-577,581-582,597,605,618,625,641,652-653
+  s_65c915cba5e485::t_e9d0c04fcde919 482
+  s_65c915cba5e485::t_fa4ecf24811c0d 584-592
+  s_65c915cba5e485::t_49f5a45b52bb0e 467,470
+  s_65c915cba5e485::t_a80e071762ac66 7,47,271,322,439,461,475,481,491-494,496-498,500-540,544-575,578-580,616,622,626,638,642,648,654
+  s_65c915cba5e485::t_9541e2c6f245aa 490
+  s_65c915cba5e485::t_1ea560fe30db15 593
+  s_65c915cba5e485::t_6982c93d1a5047 9,11,13,18,20,245,249,463,471,583,594-596,628,631,644
+  s_65c915cba5e485::t_0d538c50ce2236 495,499
+  s_65c915cba5e485::t_e3ee8b96f4af6a 8
+  s_65c915cba5e485::t_f1f83bc167745c 10
+  s_65c915cba5e485::t_996fcb6c103b2f 12
+  s_65c915cba5e485::t_00167b698fc88f 14-17
+  s_65c915cba5e485::t_0d14059f4245d3 19
+  s_65c915cba5e485::t_d642e06b57d54f 21-22
+  s_65c915cba5e485::t_ec6ba8ca544a6b 44-46
+  s_65c915cba5e485::t_9c8e954ebbe13e 244
+  s_65c915cba5e485::t_0adb684ac6e410 246-248
+  s_65c915cba5e485::t_91c6d7835853ec 250-252
+  s_65c915cba5e485::t_499774ea15babf 268-270
+  s_65c915cba5e485::t_7a2ba5ddc67ff5 319-321
+  s_65c915cba5e485::t_e1166979d0612c 436-438
+  s_65c915cba5e485::t_6e41913724ea46 458-459
+  s_65c915cba5e485::t_4969a1e27988be 462
+  s_65c915cba5e485::t_26f6fcf7200182 472-474
+  s_65c915cba5e485::t_5191b8e40d499a 476-478
+  s_65c915cba5e485::t_5ef6518b8896c3 541
+  s_65c915cba5e485::t_e2d62bf64b3e5e 598-600,602-604
+  s_65c915cba5e485::t_ffce54871c6a64 606-608,613-615
+  s_65c915cba5e485::t_03e8add155a787 617
+  s_65c915cba5e485::t_26ae31ed5882ca 619-621
+  s_65c915cba5e485::t_79f281e5ff0c30 623-624
+  s_65c915cba5e485::t_10aabbeda81a6c 627
+  s_65c915cba5e485::t_bb024ad688fb92 629-630
+  s_65c915cba5e485::t_cc18dc61de80e7 632-637
+  s_65c915cba5e485::t_86f83ad56dfa1a 639-640
+  s_65c915cba5e485::t_b98a7555fbfe05 643
+  s_65c915cba5e485::t_93c1171897f7c2 645-647
+  s_65c915cba5e485::t_b5fd95a4461845 649-651
+pyproject.toml
+  h_3026ca07fd9da6 7,13-14,18,21,27
+utils/models.py
+  h_3026ca07fd9da6 18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "2f224bc3613884aa4f4e9d6ddb5ec69ba8fc21c3",
+  "prompts": {},
+  "humans": {
+    "h_3026ca07fd9da6": {
+      "author": "Stephen Chu <stephen.chu@langchain.dev>"
+    }
+  },
+  "sessions": {
+    "s_65c915cba5e485": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fb518-0af1-7fd2-b5b7-bb5e56f74a03",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Stephen Chu <stephen.chu@langchain.dev>"
+    }
+  }
+}
