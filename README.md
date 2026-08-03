@@ -47,7 +47,7 @@ uv run jupyter notebook   # then open modules/01_deep_agents.ipynb
 Build a planning research agent from scratch: custom tools, isolated subagents, long-term memory, human-in-the-loop approval, and skills.
 > **↳ Tracing checkpoint** — open the run in LangSmith: tool calls, subagent delegation, token usage (and the multimodal image attachment).
 
-**2 · Deploy + Context Hub** — *~40 min* · `modules/02_deploy_and_govern.ipynb`
+**2 · Deploy + Context Hub** — *~40 min* · `modules/02_deploy_and_manage_context.ipynb`
 Push the agent's context (`AGENTS.md` + skills) to **LangSmith Context Hub** as versioned, reusable repos, **create your own deep agent**, and deploy — your agent ships alongside the demo agent. Chat with it in a real UI via the hosted Agent Chat UI (no frontend code).
 > **↳ Tracing checkpoint** — trace the deployed runs end to end in the LangSmith UI.
 
@@ -128,7 +128,7 @@ modular-workshops-core/
 ├── my_agent/                       (blank scaffold — attendees build their own in §2.5)
 └── modules/
     ├── 01_deep_agents.ipynb        (Workshop · Module 1 — Build)
-    ├── 02_deploy_and_govern.ipynb  (Workshop · Module 2 — Deploy + Context Hub)
+    ├── 02_deploy_and_manage_context.ipynb  (Workshop · Module 2 — Deploy + Context Hub)
     ├── 03_langsmith.ipynb          (After · Module 3 — LangSmith deep-dive)
     └── 04_engine.ipynb             (After · Module 4 — Engine)
 ```
