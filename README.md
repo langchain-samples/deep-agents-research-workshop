@@ -30,12 +30,14 @@ uv run jupyter notebook   # then open modules/01_deep_agents.ipynb
 | Key | Why | Get one |
 |-----|-----|---------|
 | `LANGSMITH_API_KEY` | Tracing (Module 1), Context Hub + deploying (Module 2) | see the callout below |
-| `OPENAI_API_KEY` | The model (both modules) | <https://platform.openai.com> |
+| `OPENAI_API_KEY` | The model — default is OpenAI (or use your own provider/gateway) | <https://platform.openai.com> |
 | `TAVILY_API_KEY` | Web search tool (both modules) | <https://tavily.com> |
 
 > ### ⚠️ The LangSmith key must be a **service key**
 > Module 2 runs `langgraph deploy`, which **requires a service key** — one that starts with **`lsv2_sk_`**, created under **LangSmith → Settings → API Keys** (give it deployment permissions).
 > A **personal** key (`lsv2_pt_…`) will trace fine but **fails deploy with a `403`**.
+
+> **Using your own model provider or gateway?** You may not need `OPENAI_API_KEY` at all — point the workshop at another provider, an internal OpenAI-compatible gateway, or a keyless endpoint. See **Switching models** below. (LangSmith keys are still needed for tracing + deploy.)
 
 ---
 
@@ -63,24 +65,45 @@ The full observability + evaluation story: Prompt Hub versioning, the trace-quer
 
 ## Switching models
 
-All modules import `model` from `utils/models.py`. Change one line there to swap providers — no notebook edits required.
+Every notebook **and** the deployed agent import one `model` object from `utils/models.py` — that's the single swap point. Change it once and everything (including the deployment) follows; no notebook edits.
 
 ```python
-# utils/models.py
+# utils/models.py — set `model` to ONE of these:
+import os
+from langchain.chat_models import init_chat_model
 
-# OpenAI (default)
+# 1) OpenAI (default) — needs OPENAI_API_KEY
 model = init_chat_model("openai:gpt-5.4-mini")
 
-# Anthropic
+# 2) Another provider — needs that provider's key
 # model = init_chat_model("anthropic:claude-sonnet-4-5")
-
-# Azure OpenAI
-# from langchain_openai import AzureChatOpenAI
-# model = AzureChatOpenAI(azure_deployment="gpt-5.4-mini", streaming=True)
-
-# AWS Bedrock
+# model = init_chat_model("google_genai:gemini-2.5-pro")
 # from langchain_aws import ChatBedrockConverse
 # model = ChatBedrockConverse(provider="anthropic", model_id="...")
+
+# 3) Your company's OpenAI-compatible gateway (internal LLM proxy) —
+#    any endpoint that speaks the OpenAI API works; just set base_url.
+# model = init_chat_model(
+#     "openai:<your-model-name>",
+#     base_url="https://llm-gateway.yourco.internal/v1",
+#     api_key=os.environ.get("YOURCO_LLM_TOKEN", "EMPTY"),
+# )
+
+# 4) A no-key gateway (auth via your network / IAM / mTLS / headers) —
+#    the client still wants a non-empty string, so pass a placeholder.
+# model = init_chat_model(
+#     "openai:<your-model-name>",
+#     base_url="https://llm-gateway.yourco.internal/v1",
+#     api_key="EMPTY",
+#     default_headers={"Authorization": "Bearer <token>"},  # optional
+# )
+```
+
+**Prefer env vars, no code change?** LangChain's OpenAI client honors `OPENAI_BASE_URL` and `OPENAI_API_KEY`, so a team can redirect the default at their gateway just by setting them in `.env`:
+
+```bash
+OPENAI_BASE_URL="https://llm-gateway.yourco.internal/v1"
+OPENAI_API_KEY="EMPTY"   # or whatever token the gateway expects
 ```
 
 
