@@ -7,9 +7,9 @@ A hands-on, guided session for **building and shipping an agent** with LangChain
 
 ---
 
-## Setup (for the workshop — Modules 1 & 2)
+## Workshop Prework
 
-Do this once before the session.
+Please complete this in advance (Modules 1 & 2) so we can dive straight into building.
 
 **Prerequisites:** Python 3.11+ and [uv](https://docs.astral.sh/uv/getting-started/installation/).
 
